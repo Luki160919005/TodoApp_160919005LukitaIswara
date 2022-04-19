@@ -5,7 +5,7 @@
     <string name="emptytodo">You dont have any to do. Start create a new one</string>
     <string name="empty">You dont have anything to do</string>
     <string name="newtodo">New to do</string>
-    <string name="entertitle">Enter Title</string>
+    <string name="entertask">Enter Task</string>
     <string name="entertitle">Enter Title</string>
     <string name="createtodo">Create to Do</string>
 </resources>
