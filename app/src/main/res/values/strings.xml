@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">TodoAPP_160919005_Lukita Iswara</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="emptytodo">You dont have any to do. Start create a new one</string>
+    <string name="empty">You dont have anything to do</string>
+    <string name="newtodo">New to do</string>
+    <string name="entertitle">Enter Title</string>
+    <string name="entertitle">Enter Title</string>
+    <string name="createtodo">Create to Do</string>
+</resources>
