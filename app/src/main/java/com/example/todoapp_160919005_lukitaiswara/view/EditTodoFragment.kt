@@ -51,13 +51,16 @@ class EditTodoFragment : Fragment() {
 
     fun observeViewModel() {
         viewModel.todoLD.observe(viewLifecycleOwner, Observer {
-            txtTitle.setText(it.title)
-            txtNotes.setText(it.notes)
+            if(it.is_done == 0){
 
-            when (it.priority) {
-                1 -> radioLow.isChecked = true
-                2 -> radioMedium.isChecked = true
-                else -> radioHigh.isChecked = true
+                txtTitle.setText(it.title)
+                txtNotes.setText(it.notes)
+
+                when (it.priority) {
+                    1 -> radioLow.isChecked = true
+                    2 -> radioMedium.isChecked = true
+                    else -> radioHigh.isChecked = true
+                }
             }
 
         })

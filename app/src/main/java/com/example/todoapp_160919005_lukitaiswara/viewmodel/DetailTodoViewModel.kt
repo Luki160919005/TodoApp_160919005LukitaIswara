@@ -32,6 +32,13 @@ class DetailTodoViewModel(application: Application)
         }
     }
 
+    fun updateIsDone(isDone:Int, uuid:Int){
+        launch {
+            val db = buildDB(getApplication())
+            db.todoDao().updateIsDone(isDone, uuid)
+        }
+    }
+
     fun addTodo(list:List<Todo>) {
         launch {
             val db = buildDB(getApplication())

@@ -7,6 +7,7 @@ import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.example.todoapp_160919005_lukitaiswara.R
 import com.example.todoapp_160919005_lukitaiswara.model.Todo
+import com.example.todoapp_160919005_lukitaiswara.viewmodel.DetailTodoViewModel
 import kotlinx.android.synthetic.main.todo_item_layout.view.*
 
 class TodoListAdapter(val todoList:ArrayList<Todo>, val adapterOnClick : (Todo) -> Unit)
@@ -25,6 +26,8 @@ class TodoListAdapter(val todoList:ArrayList<Todo>, val adapterOnClick : (Todo) 
         return todoList.size
     }
 
+    private lateinit var viewModel: DetailTodoViewModel
+
     override fun onBindViewHolder(holder: TodoViewHolder, position: Int) {
         holder.view.checkTask.text = todoList[position].title + " "+ todoList[position].priority
 
@@ -37,13 +40,15 @@ class TodoListAdapter(val todoList:ArrayList<Todo>, val adapterOnClick : (Todo) 
 
         holder.view.checkTask.setOnCheckedChangeListener { compoundButton, isChecked ->
             if(isChecked) {
+                viewModel.updateIsDone(1,todoList[position].uuid)
+
                 adapterOnClick(todoList[position])
             }
         }
-
+        /*
         holder.view.checkTask.setOnCheckedChangeListener { compoundButton, b ->
             adapterOnClick(todoList[position])
-        }
+        }*/
 
     }
 
