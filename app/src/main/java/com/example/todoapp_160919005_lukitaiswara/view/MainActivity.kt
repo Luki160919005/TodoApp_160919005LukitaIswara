@@ -5,6 +5,7 @@ import android.os.Bundle
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import androidx.navigation.ui.NavigationUI
+
 import com.example.todoapp_160919005_lukitaiswara.R
 
 class MainActivity : AppCompatActivity() {
@@ -14,13 +15,12 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        navController= Navigation.findNavController(this, R.id.hostFragment)
-
+        navController = Navigation.findNavController(this, R.id.hostFragment)
         NavigationUI.setupActionBarWithNavController(this,navController)
-
-
     }
     override fun onSupportNavigateUp(): Boolean {
-        return super.onSupportNavigateUp()
+        return NavigationUI.navigateUp(navController, null)
     }
+
+
 }

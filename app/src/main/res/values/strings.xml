@@ -8,4 +8,8 @@
     <string name="entertask">Enter Task</string>
     <string name="entertitle">Enter Title</string>
     <string name="createtodo">Create to Do</string>
+    <string name="priority">Priority</string>
+    <string name="highpriority">High Priority</string>
+    <string name="mediumpriority">Medium Priority</string>
+    <string name="lowpriority">Low Priority</string>
 </resources>
