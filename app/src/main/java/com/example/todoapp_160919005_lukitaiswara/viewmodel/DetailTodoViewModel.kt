@@ -32,10 +32,10 @@ class DetailTodoViewModel(application: Application)
         }
     }
 
-    fun updateIsDone(isDone:Int, uuid:Int){
+    fun updateIsDone(uuid:Int){
         launch {
             val db = buildDB(getApplication())
-            db.todoDao().updateIsDone(isDone, uuid)
+            db.todoDao().updateIsDone(uuid)
         }
     }
 

@@ -7,10 +7,12 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.RadioButton
 import android.widget.Toast
+import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 import com.example.todoapp_160919005_lukitaiswara.R
+import com.example.todoapp_160919005_lukitaiswara.databinding.FragmentEditTodoBinding
 import com.example.todoapp_160919005_lukitaiswara.viewmodel.DetailTodoViewModel
 import kotlinx.android.synthetic.main.fragment_create_to_do.*
 
@@ -18,13 +20,15 @@ import kotlinx.android.synthetic.main.fragment_create_to_do.*
 class EditTodoFragment : Fragment() {
 
     private lateinit var viewModel: DetailTodoViewModel
+    private lateinit var dataBinding: FragmentEditTodoBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_create_to_do, container, false)
+        dataBinding = DataBindingUtil.inflate<FragmentEditTodoBinding>(inflater,R.layout.fragment_edit_todo,container,false)
+        return dataBinding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -32,6 +36,8 @@ class EditTodoFragment : Fragment() {
         viewModel = ViewModelProvider(this).get(DetailTodoViewModel::class.java)
         val uuid = EditTodoFragmentArgs.fromBundle(requireArguments()).uuid
         viewModel.fetch(uuid)
+
+        /*
 
         txtJudulToDo.text = "Edit Todo"
         btnCreateTodo.text = "Save Changes"
@@ -42,8 +48,7 @@ class EditTodoFragment : Fragment() {
                 radio.tag.toString().toInt(), uuid)
             Toast.makeText(view.context, "Todo updated", Toast.LENGTH_SHORT).show()
             Navigation.findNavController(it).popBackStack()
-
-        }
+        }*/
 
         observeViewModel()
 
@@ -51,6 +56,7 @@ class EditTodoFragment : Fragment() {
 
     fun observeViewModel() {
         viewModel.todoLD.observe(viewLifecycleOwner, Observer {
+            dataBinding.todo = it
             if(it.is_done == 0){
 
                 txtTitle.setText(it.title)

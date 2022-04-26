@@ -35,7 +35,7 @@ class ListTodoViewModel(application: Application)
         launch {
             val db = buildDB(getApplication())
 
-            db.todoDao().deleteTodo(todo)
+            db.todoDao().updateIsDone(todo.uuid)
 
             todoLD.value = db.todoDao().selectAllTodo()
         }
