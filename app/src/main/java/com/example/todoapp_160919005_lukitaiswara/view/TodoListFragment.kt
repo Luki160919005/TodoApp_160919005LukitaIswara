@@ -35,6 +35,8 @@ class TodoListFragment : Fragment() {
         recToDoList.layoutManager = LinearLayoutManager(context)
         recToDoList.adapter = todoListAdapter
 
+
+
         floatingActionButton.setOnClickListener {
             val action = TodoListFragmentDirections.actionCreateToDo()
             Navigation.findNavController(it).navigate(action)
